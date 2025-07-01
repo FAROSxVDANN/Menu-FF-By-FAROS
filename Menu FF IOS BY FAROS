@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Free Fire - Menu Trợ Năng</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: white;
+      text-align: center;
+    }
+
+    .menu-box {
+      width: 400px;
+      background: #6d5c5c;
+      color: white;
+      margin: 60px auto;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px black;
+    }
+
+    .header {
+      background: #00cfe6;
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    .section-title {
+      background: black;
+      color: lime;
+      padding: 5px 10px;
+      margin-top: 10px;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    .button {
+      background: #00cfe6;
+      border: none;
+      width: 100%;
+      padding: 8px;
+      color: white;
+      font-weight: bold;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .info, .features {
+      margin-top: 10px;
+      text-align: left;
+      color: #00ffcc;
+    }
+
+    .info p, .features label {
+      margin: 6px 0;
+    }
+
+    .highlight-lime {
+      color: #00ff00;
+      font-weight: bold;
+    }
+
+    .highlight-green {
+      color: #aaff00;
+      font-weight: bold;
+    }
+
+    .highlight-cyan {
+      color: #00ffff;
+      font-weight: bold;
+    }
+
+    hr {
+      margin: 10px 0;
+      border: none;
+      border-top: 1px solid #ccc;
+    }
+
+    .features input[type="checkbox"] {
+      margin-right: 8px;
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="menu-box">
+    <div class="header">Free Fire - Menu Trợ Năng 🎯</div>
+
+    <div class="section-title">MENU THÔNG TIN ADMIN</div>
+
+    <button class="button" onclick="toggleInfo()">▶ Nhấn Để Mở Menu Trợ Năng</button>
+
+    <div id="info" class="info" style="display: none;">
+      <p class="highlight-lime">FB: Nguyen Van Dan</p>
+      <p>Zalo: 0389148483</p>
+      <p>Anh Em Mua file , aim adr và ios Tại Zalo 0389148483 Để Tránh Bị Scam !!</p>
+      <p class="highlight-cyan">Cảm Ơn Anh Em Đã Sử Dụng Dịch Vụ. Thank You!!</p>
+
+      <hr>
+
+      <p class="highlight-green">Menu được make bởi FAROS</p>
+      <p>Menu By: FAROS</p>
+      <p class="highlight-lime">Chúc Anh Em Có Trải Nghiệm Chơi Game Vui Vẻ!</p>
+
+      <div class="section-title">📌 MENU CHỨC NĂNG</div>
+
+      <div class="features">
+        <label><input type="checkbox"> 📍 Ghim nhẹ</label><br>
+        <label><input type="checkbox"> 📍 Nhẹ tâm </label><br>
+        <label><input type="checkbox"> 📍 Config hỗ trợ kéo tâm</label><br>
+        <label><input type="checkbox"> 📍 Antiban</label><br>
+        <label><input type="checkbox"> 📍 Fix Lag Tối Ưu</label><br>
+        <label><input type="checkbox"> 📍 Aimlock</label><br>
+        <label><input type="checkbox"> 📍 Khoá Tâm</label><br>
+        <label><input type="checkbox"> 📍 Aim head</label><br>
+        <label><input type="checkbox"> 📍 Tối ưu game</label>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleInfo() {
+      const info = document.getElementById('info');
+      info.style.display = (info.style.display === 'none') ? 'block' : 'none';
+    }
+  </script>
+
+</body>
+</html>
