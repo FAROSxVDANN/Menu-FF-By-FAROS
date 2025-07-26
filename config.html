@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>App Config FAROS</title>
+  <title>Fluck Menu</title>
   <style>
     body {
       margin: 0;
@@ -65,7 +65,7 @@
       font-size: 16px;
     }
     .function input[type="checkbox"] {
-      transform: scale(1.5);
+      transform: scale(2.3);
     }
     .loading {
       display: none;
@@ -244,11 +244,11 @@
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
-  const dots = Array.from({ length: 100 }, () => ({
+  const dots = Array.from({ length: 400 }, () => ({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
-    vx: Math.random() * 2 - 1,
-    vy: Math.random() * 2 - 1
+    vx: Math.random() * 8 - 4,
+    vy: Math.random() * 10 - 5
   }));
 
   function draw() {
@@ -268,7 +268,7 @@
       for (let j = i + 1; j < dots.length; j++) {
         let other = dots[j];
         let dist = Math.hypot(dot.x - other.x, dot.y - other.y);
-        if (dist < 100) {
+        if (dist < 150) {
           ctx.beginPath();
           ctx.moveTo(dot.x, dot.y);
           ctx.lineTo(other.x, other.y);
