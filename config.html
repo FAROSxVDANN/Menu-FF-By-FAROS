@@ -1,6 +1,8 @@
-<!DOCTYPE html><html lang="vi"><head>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
   <meta charset="UTF-8">
-  <title>Fluck Menu</title>
+  <title>App Config FAROS</title>
   <style>
     body {
       margin: 0;
@@ -99,14 +101,18 @@
   </style>
 </head>
 <body>
+
 <canvas id="bg"></canvas>
+
 <div class="menu">
   <div class="tabs">
     <button class="tab-btn active" data-tab="setting device">Setting DEVICE</button>
     <button class="tab-btn" data-tab="support device">Support Devive</button>
     <button class="tab-btn" data-tab="game">GAME Setting</button>
     <button class="tab-btn" data-tab="support game promax">Support Game Promax</button>
-  </div>  <div id="setting device" class="tab-content active">
+  </div>
+
+  <div id="setting device" class="tab-content active">
     <h3>Setting Device</h3>
     <div class="function"><span>DEVICE</span><input type="checkbox" onchange="handleToggle(this)"></div>
     <div class="function"><span>Function</span><input type="checkbox" onchange="handleToggle(this)"></div>
@@ -115,7 +121,9 @@
     <div class="function"><span>Antiband x Boost Files BY FAROS</span><input type="checkbox" onchange="handleToggle(this)"></div>
     <div class="function"><span>Modules x Adb BY FAROS</span><input type="checkbox" onchange="handleToggle(this)"></div>
     <button class="toggle-all" onclick="toggleAll(this)">Bật tất cả chức năng</button>
-  </div>  <div id="support device" class="tab-content">
+  </div>
+
+  <div id="support device" class="tab-content">
     <h3>Support Device</h3>
     <div class="function"><span>Antibad With Data</span><input type="checkbox" onchange="handleToggle(this)"></div>
     <div class="function"><span>Boost Gpu</span><input type="checkbox" onchange="handleToggle(this)"></div>
@@ -123,7 +131,9 @@
     <div class="function"><span>Data VIP BY FAROS</span><input type="checkbox" onchange="handleToggle(this)"></div>
     <div class="function"><span>File Fix Lag By FAROS</span><input type="checkbox" onchange="handleToggle(this)"></div>
     <button class="toggle-all" onclick="toggleAll(this)">Bật tất cả chức năng</button>
-  </div>  <div id="game" class="tab-content">
+  </div>
+
+  <div id="game" class="tab-content">
     <h3>Support Game</h3>
     <div class="function"><span>Antibad</span><input type="checkbox" onchange="handleToggle(this)"></div>
     <div class="function"><span>Sensitivity FFth x FFm</span><input type="checkbox" onchange="handleToggle(this)"></div>
@@ -131,7 +141,9 @@
     <div class="function"><span>FPS Lock BY FAROS</span><input type="checkbox" onchange="handleToggle(this)"></div>
     <div class="function"><span>Lock Neck 50% BY FAROS</span><input type="checkbox" onchange="handleToggle(this)"></div>
     <button class="toggle-all" onclick="toggleAll(this)">Bật tất cả chức năng</button>
-  </div>  <div id="support game promax" class="tab-content">
+  </div>
+
+  <div id="support game promax" class="tab-content">
     <h3>Support Game Promax</h3>
     <div class="function"><span>Antiband FAROS</span><input type="checkbox" onchange="handleToggle(this)"></div>
     <div class="function"><span>Giảm Rung Tâm</span><input type="checkbox" onchange="handleToggle(this)"></div>
@@ -146,77 +158,130 @@
     <div class="function"><span>AimNeck</span><input type="checkbox" onchange="handleToggle(this)"></div>
     <div class="function"><span>Antiband Free Fire</span><input type="checkbox" onchange="handleToggle(this)"></div>
     <button class="toggle-all" onclick="toggleAll(this)">Bật tất cả chức năng</button>
-  </div>  <div class="loading" id="loadingBox">
+  </div>
+
+  <div class="loading" id="loadingBox">
     <div class="loading-icon"></div>
     <span>Đang áp dụng files...</span>
   </div>
+
   <p style="margin-top:20px; color:#aaa; text-align:center; line-height:1.6;">
     • Coder : FAROS<br>
     • Fb : Nguyen Van Dan<br>
-    • Tik: faros.kaka
-    | Múc File Vip Ib<br>
+    • Tik: faros.kaka | Múc File Vip Ib<br>
   </p>
 </div>
+
 <script>
-const buttons = document.querySelectorAll('.tab-btn');
-const contents = document.querySelectorAll('.tab-content');
-const loadingBox = document.getElementById('loadingBox');
-buttons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    buttons.forEach(b => b.classList.remove('active'));
-    contents.forEach(c => c.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById(btn.dataset.tab).classList.add('active');
+  const buttons = document.querySelectorAll('.tab-btn');
+  const contents = document.querySelectorAll('.tab-content');
+  const loadingBox = document.getElementById('loadingBox');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
   });
-});
-let lastToggleTime = 0; 
-let currentAudio = null;function handleToggle(checkbox) { const now = Date.now(); if (now - lastToggleTime < 150) { checkbox.checked = !checkbox.checked; return; } lastToggleTime = now; loadingBox.style.display = 'flex'; setTimeout(() => { loadingBox.style.display = 'none'; }, 500);
 
-if (currentAudio) { currentAudio.pause(); currentAudio.currentTime = 0; } currentAudio = new Audio('https://www.soundjay.com/buttons/sounds/button-16.mp3'); currentAudio.play(); }
+  let lastToggleTime = 0;
+  let currentAudio = null;
+  function handleToggle(checkbox) {
+    const now = Date.now();
+    if (now - lastToggleTime < 150) {
+      checkbox.checked = !checkbox.checked;
+      return;
+    }
+    lastToggleTime = now;
+    loadingBox.style.display = 'flex';
+    setTimeout(() => loadingBox.style.display = 'none', 500);
 
-function toggleAll(button) { const tabContent = button.closest('.tab-content'); const checkboxes = Array.from(tabContent.querySelectorAll('input[type="checkbox"]')); let index = 0;
-
-function toggleNext() { if (index >= checkboxes.length) { setTimeout(() => { const doneMsg = document.createElement('div'); doneMsg.textContent = 'Hoàn thành bật tất cả chức năng'; doneMsg.style.position = 'fixed'; doneMsg.style.top = '20px'; doneMsg.style.left = '50%'; doneMsg.style.transform = 'translateX(-50%)'; doneMsg.style.background = '#0f0'; doneMsg.style.color = '#000'; doneMsg.style.padding = '10px 20px'; doneMsg.style.borderRadius = '10px'; doneMsg.style.fontWeight = 'bold'; doneMsg.style.boxShadow = '0 0 10px #0f0'; document.body.appendChild(doneMsg);
-
-new Audio('https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3').play();
-
-    setTimeout(() => doneMsg.remove(), 2500);
-  }, 500);
-  return;
-}
-
-const cb = checkboxes[index];
-if (!cb.checked) cb.checked = true;
-handleToggle(cb);
-index++;
-setTimeout(toggleNext, 350);
-
-}
-
-toggleNext(); }
-
-const canvas = document.getElementById('bg'); const ctx = canvas.getContext('2d'); canvas.width = window.innerWidth; canvas.height = window.innerHeight; const dots = Array.from({ length: 100 }, () => ({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, vx: Math.random() * 0.5 - 0.25, vy: Math.random() * 0.5 - 0.25 }));
-
-function draw() { ctx.clearRect(0, 0, canvas.width, canvas.height); for (let i = 0; i < dots.length; i++) { let dot = dots[i]; dot.x += dot.vx; dot.y += dot.vy; if (dot.x < 0 || dot.x > canvas.width) dot.vx *= -1; if (dot.y < 0 || dot.y > canvas.height) dot.vy *= -1;
-
-ctx.beginPath();
-ctx.arc(dot.x, dot.y, 2, 0, Math.PI * 2);
-ctx.fillStyle = '#0f0';
-ctx.fill();
-
-for (let j = i + 1; j < dots.length; j++) {
-  let other = dots[j];
-  let dist = Math.hypot(dot.x - other.x, dot.y - other.y);
-  if (dist < 100) {
-    ctx.beginPath();
-    ctx.moveTo(dot.x, dot.y);
-    ctx.lineTo(other.x, other.y);
-    ctx.strokeStyle = 'rgba(0,255,0,0.2)';
-    ctx.stroke();
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+    }
+    currentAudio = new Audio('https://www.soundjay.com/buttons/sounds/button-16.mp3');
+    currentAudio.play();
   }
-}
 
-} requestAnimationFrame(draw); } draw(); </script>
+  function toggleAll(button) {
+    const tabContent = button.closest('.tab-content');
+    const checkboxes = Array.from(tabContent.querySelectorAll('input[type="checkbox"]'));
+    let index = 0;
+    function toggleNext() {
+      if (index >= checkboxes.length) {
+        setTimeout(() => {
+          const doneMsg = document.createElement('div');
+          doneMsg.textContent = 'Hoàn thành bật tất cả chức năng';
+          doneMsg.style.position = 'fixed';
+          doneMsg.style.top = '20px';
+          doneMsg.style.left = '50%';
+          doneMsg.style.transform = 'translateX(-50%)';
+          doneMsg.style.background = '#0f0';
+          doneMsg.style.color = '#000';
+          doneMsg.style.padding = '10px 20px';
+          doneMsg.style.borderRadius = '10px';
+          doneMsg.style.fontWeight = 'bold';
+          doneMsg.style.boxShadow = '0 0 10px #0f0';
+          document.body.appendChild(doneMsg);
+          new Audio('https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3').play();
+          setTimeout(() => doneMsg.remove(), 2500);
+        }, 500);
+        return;
+      }
+      const cb = checkboxes[index];
+      if (!cb.checked) cb.checked = true;
+      handleToggle(cb);
+      index++;
+      setTimeout(toggleNext, 350);
+    }
+    toggleNext();
+  }
+
+  const canvas = document.getElementById('bg');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const dots = Array.from({ length: 100 }, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    vx: Math.random() * 2 - 1,
+    vy: Math.random() * 2 - 1
+  }));
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < dots.length; i++) {
+      let dot = dots[i];
+      dot.x += dot.vx;
+      dot.y += dot.vy;
+      if (dot.x < 0 || dot.x > canvas.width) dot.vx *= -1;
+      if (dot.y < 0 || dot.y > canvas.height) dot.vy *= -1;
+
+      ctx.beginPath();
+      ctx.arc(dot.x, dot.y, 2, 0, Math.PI * 2);
+      ctx.fillStyle = '#ff0033';
+      ctx.fill();
+
+      for (let j = i + 1; j < dots.length; j++) {
+        let other = dots[j];
+        let dist = Math.hypot(dot.x - other.x, dot.y - other.y);
+        if (dist < 100) {
+          ctx.beginPath();
+          ctx.moveTo(dot.x, dot.y);
+          ctx.lineTo(other.x, other.y);
+          ctx.strokeStyle = 'rgba(255, 0, 51, 0.5)';
+          ctx.lineWidth = 1.5;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+</script>
 
 </body>
 </html>
