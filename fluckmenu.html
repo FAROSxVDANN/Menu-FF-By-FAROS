@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Fluck Menu</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #000;
+      overflow: hidden;
+    }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    /* Menu chỉnh to ra và căn giữa */
+    .menu {
+      width: 90vw;               /* Chiếm 90% chiều rộng màn hình */
+      max-width: 650px;          /* Giữ đẹp trên máy lớn */
+      max-height: 250vh;          /* Không quá dài */
+      background: rgba(42, 42, 42, 0.95);
+      color: white;
+      border-radius: 20px;
+      padding: 30px 40px;        /* Padding rộng để nội dung thoáng */
+      margin: 5vh auto;
+      box-shadow: 0 0 50px #0f0;
+      overflow-y: auto;
+      box-sizing: border-box;
+    }
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 12px;
+      background: #444;
+      border: none;
+      color: #ddd;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .tab-btn.active {
+      background: #0f0;
+      color: black;
+    }
+    .tab-content {display: none;}
+    .tab-content.active {display: block;}
+    h3 {
+      font-size: 18px;
+      border-bottom: 1px solid #555;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+    }
+    .function {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 12px 0;
+      font-size: 16px;
+      padding: 0 5px;            /* Thêm khoảng cách để nội dung không sát mép */
+      transition: 0.3s;
+    }
+    .function input[type="checkbox"] {
+      transform: scale(1.5);
+      cursor: pointer;
+      accent-color: #0f0;
+    }
+    .toggle-all {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      background: #0f0;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    /* Phần Dev và cam kết */
+    .dev-info {
+      margin-top: 25px;
+      padding: 15px;
+      background: rgba(0,0,0,0.6);
+      border-radius: 12px;
+      color: #0f0;
+      font-size: 14px;
+      line-height: 1.8;
+      text-align: center;
+      border: 1px solid rgba(0,255,0,0.2);
+    }
+    .dev-message {
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(0,255,0,0.1);
+      border-radius: 12px;
+      color: #0f0;
+      font-size: 14px;
+      line-height: 1.6;
+      text-align: center;
+      font-weight: bold;
+      border: 1px solid rgba(0,255,0,0.2);
+      box-shadow: 0 0 15px rgba(0,255,0,0.3);
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="bg"></canvas>
+
+<div class="menu">
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="setting device">Cấu hình thiết bị</button>
+    <button class="tab-btn" data-tab="support device">Hỗ trợ thiết bị</button>
+    <button class="tab-btn" data-tab="game">Tối ưu game</button>
+    <button class="tab-btn" data-tab="support game promax">Hỗ trợ Game Pro</button>
+  </div>
+
+  <!-- Tab 1 -->
+<div id="setting device" class="tab-content active">
+  <h3>Cấu hình thiết bị</h3>
+  <div class="function"><span>Tăng tốc thiết bị toàn diện FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Đẩy đa luồng hiệu năng cao FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Khóa đầu 30% mượt ổn định FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Bảo vệ dữ liệu & giảm crash FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Chống ban & tăng tốc xử lý FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Chế độ nhân CPU tối đa FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Tối ưu RAM và nhiệt độ FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Ưu tiên GPU cho game FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Điều chỉnh hệ thống thông minh FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Ổn định hiệu năng dài hạn FAROS</span><input type="checkbox"></div>
+  <button class="toggle-all">Bật tất cả chức năng</button>
+</div>
+
+<!-- Tab 2 -->
+<div id="support device" class="tab-content">
+  <h3>Hỗ trợ thiết bị</h3>
+  <div class="function"><span>Chống lỗi hệ thống & dữ liệu FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Tăng tốc GPU ổn định khung hình FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Tối đa hóa hiệu năng CPU FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Bảo mật dữ liệu nâng cao FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Giảm lag & mượt mà hơn FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Giám sát và cân bằng nhiệt độ FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Kéo dài tuổi thọ pin FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Tối ưu đường truyền mạng FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Giảm trễ cảm ứng màn hình FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Hiệu chỉnh thiết bị tự động FAROS</span><input type="checkbox"></div>
+  <button class="toggle-all">Bật tất cả chức năng</button>
+</div>
+
+<!-- Tab 3 -->
+<div id="game" class="tab-content">
+  <h3>Tối ưu game</h3>
+  <div class="function"><span>Chống ban khi chơi game FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Điều chỉnh độ nhạy thông minh FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Tối ưu game 90% hiệu suất FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Giữ FPS ổn định cao FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Khóa tâm mượt mà FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Giảm giật và rung khi bắn FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Tự động khắc phục rò rỉ RAM FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Chống tụt khung hình đột ngột FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Tăng độ ổn định cảm ứng FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Tối ưu phản hồi trong trận FAROS</span><input type="checkbox"></div>
+  <button class="toggle-all">Bật tất cả chức năng</button>
+</div>
+
+<!-- Tab 4 -->
+<div id="support game promax" class="tab-content">
+  <h3>Hỗ trợ Game Pro</h3>
+  <div class="function"><span>Chống ban cấp cao FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Dự đoán hướng di chuyển địch FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Độ nhạy động siêu mượt FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Bù địa hình tự động FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Lọc rung và ổn định tâm FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Dự đoán đường đạn chính xác FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Ổn định đường đạn FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Điều chỉnh tâm theo tình huống FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Khóa cổ siêu chính xác FAROS</span><input type="checkbox"></div>
+  <div class="function"><span>Chống lag toàn diện FAROS</span><input type="checkbox"></div>
+  <button class="toggle-all">Bật tất cả chức năng</button>
+</div>
+
+<!-- Dev Info -->
+<div class="dev-info">
+  <div><strong>Dev:</strong> FAROS</div>
+  <div><strong>Facebook:</strong> Nguyen Van Dan</div>
+  <div><strong>Zalo:</strong> 0389148483</div>
+  <div><strong>TikTok:</strong> faros.kaka</div>
+</div>
+
+<!-- Thông báo cuối menu -->
+<div class="dev-message">
+  ANH EM NÀO MUỐN KHẮC PHỤC CÁC VẤN ĐỀ KHÁC CỨ IB MÌNH FAROS NHÉ<br>
+  MUỐN FILE VIP THÌ CỨ IB
+</div>
+
+<script>
+  // Chuyển tab
+  document.querySelectorAll('.tab-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.tab-content').forEach(tc=>tc.classList.remove('active'));
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Bật tất cả checkbox mượt mà
+  document.querySelectorAll('.toggle-all').forEach(btn=>{
+    btn.addEventListener('click', async ()=>{
+      const checkboxes = btn.parentElement.querySelectorAll('input[type=checkbox]');
+      for(let i=0; i<checkboxes.length; i++){
+        checkboxes[i].checked = true;
+        checkboxes[i].parentElement.style.transform='scale(1.1)';
+        checkboxes[i].parentElement.style.color='#0f0';
+        await new Promise(r=>setTimeout(r,150));
+        checkboxes[i].parentElement.style.transform='scale(1)';
+      }
+    });
+  });
+
+  // Nền hạt động
+  const canvas=document.getElementById('bg');
+  const ctx=canvas.getContext('2d');
+  let w,h;
+  function resize(){w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight;}
+  window.addEventListener('resize',resize);resize();
+
+  const particles=Array.from({length:80},()=>({
+    x:Math.random()*w,
+    y:Math.random()*h,
+    vx:(Math.random()-0.5)*1.5,
+    vy:(Math.random()-0.5)*1.5,
+    r:2+Math.random()*2
+  }));
+
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    particles.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>w)p.vx*=-1;
+      if(p.y<0||p.y>h)p.vy*=-1;
+      ctx.beginPath();
+      ctx.fillStyle='#0f0';
+      ctx.shadowBlur=15;
+      ctx.shadowColor='#0f0';
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fill();
+    });
+    for(let i=0;i<particles.length;i++){
+      for(let j=i+1;j<particles.length;j++){
+        let dx=particles[i].x-particles[j].x;
+        let dy=particles[i].y-particles[j].y;
+        let dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<150){
+          ctx.beginPath();
+          ctx.strokeStyle='rgba(0,255,0,0.2)';
+          ctx.moveTo(particles[i].x,particles[i].y);
+          ctx.lineTo(particles[j].x,particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+</script>
+</body>
+</html>
