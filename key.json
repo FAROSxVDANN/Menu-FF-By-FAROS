@@ -1,0 +1,7 @@
+{
+  "keys": {
+    "FAROS3DAY": { "expire": "2025-11-27" },
+    "FAROS1WEEK": { "expire": "2025-12-1" },
+    "FAROSPERM": { "expire": "never" }
+  }
+}
